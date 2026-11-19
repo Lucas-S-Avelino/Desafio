@@ -5,33 +5,33 @@ public class Desafio {
         Scanner leia = new Scanner(System.in);
 
         String nome;
-        double total_vendido;
-        double percentual_comissao;
+        double totalVendido;
+        double percentualComissao;
         double salario = 1650;
-        Boolean bonus = false;
 
         System.out.print("Nome do vendedor: ");
         nome = leia.nextLine();
 
         System.out.print("Valor total de vendas: ");
-        total_vendido = leia.nextDouble();
+        totalVendido = leia.nextDouble();
 
         System.out.print("Qual a percentual da comissão? ");
-        percentual_comissao = leia.nextDouble();
+        percentualComissao = leia.nextDouble();
 
-        double comissao = (total_vendido * (percentual_comissao / 100));
+        double comissao = (totalVendido * (percentualComissao / 100));
+        double bonus = 0.0;
 
-        if (total_vendido >= 50000) {
-            comissao = comissao + 1000;
-            bonus = true;
-
-        } else {
-            bonus = false;
+        if (totalVendido >= 50000) {
+            bonus = 1000;
         }
-        double pagamento = salario + comissao;
 
-        System.out.println("\nVendedor: " + nome + "\nTotal Vendido: " + total_vendido + "\nComissão: " + comissao
-                + "\nBônus: " + bonus + "\nPagamento: " + pagamento);
+        double pagamento = salario + comissao + bonus;
+
+        System.out.println("\nNome: " + nome);
+        System.out.printf("Total vendido: R$ %.2f\n", totalVendido);
+        System.out.printf("Comissão: R$ %.2f\n", comissao);
+        System.out.printf("Bônus: R$ %.2f\n", bonus);
+        System.out.printf("Pagamento: R$ %.2f\n", pagamento);
         leia.close();
     }
 }
